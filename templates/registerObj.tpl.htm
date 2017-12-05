@@ -1,0 +1,137 @@
+<h4 class="light center">Enregistrer un nouvel objet</h4>
+
+<div class="row" ng-controller="registerObjController" >
+
+
+<div ng-show="content" class="row">
+   <div class="col s12 m12 l12">
+     <div class="card white">
+       <form ng-model="form"ng-submit="addObj(obj)">
+
+       <div class="card-content black-text">
+
+         <div class="input-field col s12">
+               <input ng-model="obj.name" autofocus id="icon_prefix" type="text" class="validate">
+               <label for="icon_prefix">Nom</label>
+             </div>
+
+         <div class="row">
+           <div class="col s6">
+           </br>
+             <div class="input-field">
+               <label class="active" for="qty">Quantité</label>
+               <input class="number" id="qty"type="number" name="name" value="{{obj.qty}}">
+             </div>
+           </div>
+           <div class="col s6">
+           </br>
+            <button type="button" class="btn btn-default blue" ng-click="removeQty()">-</button>
+            <button type="button" class="btn btn-default blue" ng-click="addQty()">+</button>
+           </div>
+         </div>
+
+         <div class="row">
+          <div class="input-field col s12">
+             <select ng-model="obj.cat" class="browser-default" ng-options="x for x in categories">
+               <option value="" selected disabled>Séléctionnez une catégorie</option>
+             </select>
+           </div>
+           <div class="input-field col s12">
+               <input ng-model="obj.catInput"class="text" id="cat" type="text" name="name" placeholder="Ou ajoutez une nouvelle catégorie">
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="input-field col s12">
+               <input ng-model="obj.code" class="text" id="cat" type="text" name="name" placeholder="Code de l'objet">
+           </div>
+         </div>
+         <input type="submit" hidden>
+       </div>
+     </div>
+   </div>
+
+ </form>
+ </div>
+
+</div>
+
+<div ng-show="preloader"class="preloader-wrapper big active s12 m12 l12">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('select').material_select();
+});
+</script>
+
+
+<!--
+<div class="panel panel-default" ngController="registerObjController">
+  <div class="panel-heading center-text">Enregistrer un objet</div>
+  <div class="panel-body">
+
+</br>
+
+
+  <form ng-submit="addObj(obj)">
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-tags"></i></span>
+
+<input type="text" ng-model="obj.name" autofocus class="form-control col-lg-8" placeholder="Nom de l'objet" aria-describedby="basic-addon1">
+</div>
+
+
+</br>
+
+  <div class="input-group">
+
+    <div class="input-group-btn"><button type="button" class="btn btn-default" ng-click="removeQty()">-</button></div>
+    <input ng-init="qty=0" value="{{obj.qty}}" class="form-control center-text" aria-label="test">
+    <div class="input-group-btn"><button type="button" class="btn btn-default" ng-click="addQty()">+</button></div>
+  </div>
+</br>
+
+  <div class="" ng-show="catSelect">
+
+    <select  ng-show="catSelect" ng-model="obj.cat" class="form-control center-text">
+      <option selected value="">Selectionnez une catégorie</option>
+      <option id="object_category" ng-repeat="category in categories" class="center-text" ng-model="obj.cat" value="{{category}}">{{category}}</option>
+    </select>
+  </br>
+  <div class="span12 text-center legend">
+    - ou -
+  </div>
+
+</div>
+
+
+</br>
+
+  <input  type="text" ng-model="obj.catInput"class="form-control col-lg-8" placeholder="Ajouter une catégorie" >
+
+</br>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-barcode"></i></span>
+  <input type="text" ng-model="obj.code" class="form-control col-lg-8" placeholder="Code barre" >
+</div>
+<input type="submit" hidden>
+
+</form>
+
+
+  </div>
+
+
+</div>

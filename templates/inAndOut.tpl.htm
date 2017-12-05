@@ -1,0 +1,60 @@
+<div class="s12 l12 m12" ngController="inAndOutObjController">
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs transparent">
+      <li class="tab col s3"><a ng-click="setFocus(); setActive('in')" class="active" href="#test1">Entrée</a></li>
+      <li class="tab col s3"><a ng-click="setFocus(); setActive('out')" href="#test2">Sortie</a></li>
+      <li class="tab col s3"><a ng-click="setFocus(); setActive('info')" href="#test4">Info</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<div ng-show="preload" class="col s12 m12 l12 center">
+
+
+
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ul ng-show="infoDiv" class="data-ctrl collection">
+  <li class="collection-item">
+      <span class="">{{info.object_name}}</span>
+      <span class="badge">{{info.quantity}} / {{info.stock_total}}</span>
+
+  </li>
+</ul>
+
+<form ng-submit="send()" >
+
+    <input ng-model="code" id="inOutInput" value="ceci est un code"  onblur="this.focus()" autofocus placeholder="Scannez ici" class="form-control center-text" aria-label="test">
+
+    <input type="submit" hidden value="send">
+
+      </form>
+  </div>
+
+</div>
+
+
+
+</br>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('ul.tabs').tabs();
+});
+</script>

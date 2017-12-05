@@ -1,0 +1,18 @@
+<h4 class="light center">Stock</h4>
+
+
+<div class="bar">
+  <input type="text" autofocus class="search" ng-model="searchString" placeholder="Rechercher un objet" />
+</div>
+
+
+<ul class="data-ctrl collection">
+  <li ng-repeat="i in objects | searchFor:searchString" class="collection-item">
+      <span class="">{{i.name}}</span>
+      <span class="badge">{{i.qty}} / {{i.max}}</span>
+  </li>
+</ul>
+
+
+
+</script>
